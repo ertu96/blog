@@ -2,14 +2,20 @@ import { cx } from '@/utils'
 import Link from 'next/link'
 
 type TagProps = {
-    tag: string
-    }
-const Tag = ({link="#", name}) => {
-  return (
-    <Link href={link} className={cx("inline-block py-3 px-10 bg-dark text-white rounded-full capitalize font-semibold hover:scale-105 transition-all ease duration-200 border-solid border-light border-2")}>
-                    {name}
-                </Link>
-  )
+    name: string
+    link?: string
+}
+const Tag = ({ link = '#', name }: TagProps) => {
+    return (
+        <Link
+            href={link}
+            className={cx(
+                'ease inline-block rounded-full border-2 border-solid border-light bg-dark px-10 py-3 font-semibold capitalize text-white transition-all duration-200 hover:scale-105'
+            )}
+        >
+            {name}
+        </Link>
+    )
 }
 
 export default Tag
