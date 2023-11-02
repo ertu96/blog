@@ -1,0 +1,6 @@
+build
+.contentlayer
+.next
+.vscode
+content
+node_modules
