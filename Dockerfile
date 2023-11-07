@@ -1,9 +1,9 @@
-FROM node:18.17.1-alpine3.17
+FROM node:18.18.2
 WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm install --force
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3131
 CMD ["npm", "dev"]
