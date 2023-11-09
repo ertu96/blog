@@ -39,7 +39,47 @@ export default function BlogPage({ params }: any) {
             </div>
             <BlogDetails blog={blog} slug={params.slug} />
             <div className="mt-8 grid grid-cols-12 gap-16 px-10">
-                <div className="col-span-4"></div>
+                <div className="col-span-4">
+                    <details
+                        className="sticky top-6 max-h-[80vh] overflow-hidden overflow-y-auto rounded-lg border-[1px] border-solid border-dark p-4 text-dark "
+                        open
+                    >
+                        <summary className="cursor-pointer text-lg font-semibold capitalize">
+                            Table Of Content
+                        </summary>
+                        <ul className="mt-4 font-in text-base">
+                            {blog.toc.map((heading) => {
+                                return (
+                                    <li
+                                        key={`#${heading.slug}`}
+                                        className="py-1"
+                                    >
+                                        <a
+                                            href={`#${heading.slug}`}
+                                            data-level={heading.level}
+                                            className="flex  items-center
+                                       justify-start border-solid border-dark/40
+                                       data-[level=two]:border-t
+                                       data-[level=three]:pl-4
+                                       data-[level=two]:pl-0 data-[level=two]:pt-2 sm:data-[level=three]:pl-6
+                                       "
+                                        >
+                                            {heading.level === 'three' ? (
+                                                <span className="mr-2 flex h-1 w-1 rounded-full bg-dark">
+                                                    &nbsp;
+                                                </span>
+                                            ) : null}
+
+                                            <span className="hover:underline">
+                                                {heading.text}
+                                            </span>
+                                        </a>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </details>
+                </div>
                 <div className="col-span-8">
                     <BlogContent blog={blog} />
                 </div>

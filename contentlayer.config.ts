@@ -1,5 +1,8 @@
 import { defineDocumentType, makeSource } from '@contentlayer/source-files'
+import GithubSlugger from 'github-slugger'
 import readingTime from 'reading-time'
+
+const TABLE_OF_CONTENTS_REGEXP = /\n(?<flag>#{1,6})\s+(?<content>.+)/g
 
 const Blog = defineDocumentType(() => ({
     name: 'Blog',
@@ -23,6 +26,30 @@ const Blog = defineDocumentType(() => ({
         readingTime: {
             type: 'json',
             resolve: (doc) => readingTime(doc.body.raw),
+        },
+        toc: {
+            type: 'json',
+            resolve: async (doc) => {
+                const slugger = new GithubSlugger()
+                const headings = Array.from(
+                    doc.body.raw.matchAll(TABLE_OF_CONTENTS_REGEXP)
+                ).map(({ groups }) => {
+                    return {
+                        level:
+                            groups?.flag?.length == 1
+                                ? 'one'
+                                : groups?.flag?.length == 2
+                                ? 'two'
+                                : 'three',
+                        text: groups?.content,
+                        slug: groups?.content
+                            ? slugger.slug(groups.content)
+                            : undefined,
+                    }
+                })
+
+                return headings
+            },
         },
     },
 }))
