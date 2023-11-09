@@ -1,3 +1,4 @@
+import { slug } from 'github-slugger'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Blog } from '../../../.contentlayer/generated/types'
@@ -24,6 +25,7 @@ const BlogLayoutOne = ({ blog }: BlogLayoutOneProps) => {
                 {blog.tags && blog.tags.length > 0 && (
                     <Tag
                         name={blog.tags[0]}
+                        link={`/categories/${slug(blog.tags[0])}`}
                         className="!border px-6 py-2 text-sm"
                     />
                 )}

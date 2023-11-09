@@ -1,15 +1,21 @@
 import BlogContent from '@/components/blog/BlogContent'
 import BlogDetails from '@/components/blog/BlogDetails'
 import Tag from '@/components/elements/Tag'
+import { slug } from 'github-slugger'
 import Image from 'next/image'
 import { allBlogs } from '../../../../.contentlayer/generated/index.mjs'
-import { Blog } from '../../../../.contentlayer/generated/types'
 
 type BlogPageProps = {
-    blog: Blog
+    params: {
+        slug: string
+    }
 }
 
-export default function BlogPage({ params }: any) {
+export async function generateStaticParams() {
+    return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }))
+}
+
+export default function BlogPage({ params }: BlogPageProps) {
     const blog = allBlogs.find(
         (blog) => blog._raw.flattenedPath === params.slug
     )
@@ -17,11 +23,13 @@ export default function BlogPage({ params }: any) {
         <article>
             <div className="relative mb-8 h-[70vh] w-full bg-dark text-center">
                 <div className="absolute left-1/2 top-1/2 z-10 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center ">
-                    <Tag
-                        name={blog?.tags ? blog.tags[0] : ''}
-                        link={`/categories/${blog?.tags[0]}`}
-                        className="px-6 py-2 text-sm"
-                    />
+                    {blog?.tags && blog.tags.length > 0 && (
+                        <Tag
+                            name={blog.tags[0]}
+                            link={`/categories/${slug(blog.tags[0])}`}
+                            className="px-6 py-2 text-sm"
+                        />
+                    )}
                     <h1 className="relative mt-6 inline-block w-5/6 text-5xl font-semibold capitalize leading-normal text-light">
                         {blog?.title}
                     </h1>
