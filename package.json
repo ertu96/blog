@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@contentlayer/source-files": "^0.3.4",
+        "@dotlottie/react-player": "^1.6.5",
         "contentlayer": "^0.3.4",
         "date-fns": "^2.30.0",
         "github-slugger": "^2.0.0",
