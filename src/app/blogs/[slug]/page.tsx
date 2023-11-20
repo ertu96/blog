@@ -1,6 +1,7 @@
 import BlogContent from '@/components/blog/BlogContent'
 import BlogDetails from '@/components/blog/BlogDetails'
 import Tag from '@/components/elements/Tag'
+import siteMetadata from '@/utils/siteMetaData'
 import { slug } from 'github-slugger'
 import Image from 'next/image'
 import { allBlogs } from '../../../../.contentlayer/generated/index.mjs'
@@ -13,6 +14,61 @@ type BlogPageProps = {
 
 export async function generateStaticParams() {
     return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }))
+}
+
+export async function generateMetadata({ params }: BlogPageProps) {
+    const blog = allBlogs.find(
+        (blog) => blog._raw.flattenedPath === params.slug
+    )
+    if (!blog) return
+
+    const publishedAt = new Date(blog.publishedAt).toISOString()
+    const modifiedAt = new Date(
+        blog.updatedAt || blog.publishedAt
+    ).toISOString()
+
+    let imageList = [siteMetadata.socialBanner]
+
+    if (blog.image) {
+        imageList =
+            typeof blog.image.filePath === 'string'
+                ? [
+                      `${siteMetadata.siteUrl}${blog.image.filePath.replace(
+                          '../public',
+                          ''
+                      )}`,
+                  ]
+                : []
+    }
+
+    const ogImages = imageList.map((image) => ({
+        url: image.includes('http') ? image : `${siteMetadata.siteUrl}${image}`,
+    }))
+
+    const authors = blog.author ? [blog.author] : siteMetadata.author
+
+    return {
+        title: blog.title,
+        description: blog.description,
+        openGraph: {
+            title: blog.title,
+            description: blog.description,
+            url: `${siteMetadata.siteUrl}${blog.url}`,
+            siteName: siteMetadata.title,
+            locale: 'en_US',
+            type: 'article',
+            publishedTime: publishedAt,
+            modifiedTime: modifiedAt,
+            images: ogImages,
+            authors,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: blog.title,
+            description: blog.description,
+            images: ogImages,
+        },
+    }
 }
 
 export default function BlogPage({ params }: BlogPageProps) {

@@ -1,4 +1,5 @@
 'use client'
+import siteMetadata from '@/utils/siteMetaData'
 import Link from 'next/link'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { DribbbleIcon, GithubIcon, LinkedinIcon, TwitterIcon } from '../Icons'
@@ -45,16 +46,28 @@ const Footer = () => {
                 />
             </form>
             <div className="mt-8 flex items-center">
-                <a href="" className="mr-4 inline-block h-6 w-6">
+                <a
+                    href={siteMetadata.linkedin}
+                    className="mr-4 inline-block h-6 w-6"
+                >
                     <LinkedinIcon className="ease transition-all duration-200 hover:scale-125" />
                 </a>
-                <a href="" className="mr-4 inline-block h-6 w-6">
+                <a
+                    href={siteMetadata.twitter}
+                    className="mr-4 inline-block h-6 w-6"
+                >
                     <TwitterIcon className="ease transition-all duration-200 hover:scale-125" />
                 </a>
-                <a href="" className="mr-4 inline-block h-6 w-6">
+                <a
+                    href={siteMetadata.github}
+                    className="mr-4 inline-block h-6 w-6"
+                >
                     <GithubIcon className="ease transition-all duration-200 hover:scale-125" />
                 </a>
-                <a href="" className="mr-4 inline-block h-6 w-6">
+                <a
+                    href={siteMetadata.dribbble}
+                    className="mr-4 inline-block h-6 w-6"
+                >
                     <DribbbleIcon className="ease transition-all duration-200 hover:scale-125" />
                 </a>
             </div>
