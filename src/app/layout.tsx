@@ -4,6 +4,7 @@ import { cx } from '@/utils'
 import siteMetadata from '@/utils/siteMetaData'
 import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({
@@ -63,9 +64,16 @@ export default function RootLayout({
                 className={cx(
                     inter.variable,
                     manrope.variable,
-                    'bg-light font-mr '
+                    'bg-light font-mr dark:bg-dark '
                 )}
             >
+                <Script id="darkMode">
+                    {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                            document.documentElement.classList.add('dark')
+                          } else {
+                            document.documentElement.classList.remove('dark')
+                          }`}
+                </Script>
                 <Header />
                 {children}
                 <Footer />
