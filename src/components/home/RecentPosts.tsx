@@ -11,9 +11,9 @@ const RecentPosts = ({ blogs }: RecentPostsProps) => {
     const sortedBlogs = sortBlogs(blogs)
 
     return (
-        <section className="mt-32 flex w-full flex-col items-center justify-center px-32">
+        <section className=" sm:mt-24 md:mt-32 sm:px-10 md:px-24 mt-16 flex w-full flex-col items-center justify-center px-5 sxl:px-32">
             <div className="flex w-full justify-between">
-                <h2 className="inline-block  text-4xl font-bold capitalize">
+                <h2 className="md:text-4xl inline-block w-fit text-2xl font-bold capitalize text-dark dark:text-light">
                     Recent Posts
                 </h2>
                 <Link
