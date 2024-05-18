@@ -25,19 +25,19 @@ const HomeCoverSection = ({ blogs }: HomeCoverSectionProps) => {
                     fill
                     className="-z-10 h-full w-full rounded-3xl object-cover object-center"
                 />
-                <div className="z-0 flex w-3/4 flex-col items-start justify-center p-16 text-light">
+                <div className="z-0 flex w-full lg:w-3/4 flex-col items-start justify-center p-6 sm:p-8 md:p-12 lg:p-16 text-light">
                     <Tag
                         link={`/categories/${slug(blog.tags[0])}`}
                         name={blog.tags[0]}
                     />
                     <Link href={blog.url} className="mt-6">
-                        <h1 className="text-4xl font-bold capitalize text-light">
-                            <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_6px]">
+                        <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold capitalize text-light">
+                            <span className="bg-gradient-to-r dark:from-accentDark/50 dark:to-accentDark/50 from-accent to-accent bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_6px]">
                                 {blog.title}
                             </span>
                         </h1>
                     </Link>
-                    <p className="mt-4 inline-block font-in text-xl ">
+                    <p className="mt-4 hidden sm:inline-block font-in md:text-lg lg:text-xl ">
                         {blog.description}
                     </p>
                 </div>

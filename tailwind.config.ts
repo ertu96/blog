@@ -21,6 +21,10 @@ const config: Config = {
                 in: ['var(--font-in)'],
             },
         },
+        screens: {
+            sx: '480px',
+            sxl: '1180px',
+        }
     },
     plugins: [
         require('@tailwindcss/forms'),
