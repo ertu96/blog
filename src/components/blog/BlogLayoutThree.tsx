@@ -9,7 +9,7 @@ type BlogLayoutThreeProps = {
 
 const BlogLayoutThree = ({ blog }: BlogLayoutThreeProps) => {
     return (
-        <div className="group flex flex-col items-center text-dark">
+        <div className="group flex flex-col items-center text-dark dark:text-light">
             <Link href={blog.url} className="h-full overflow-hidden rounded-xl">
                 <Image
                     src={blog.image?.filePath.replace('../public', '') || ''}
@@ -23,19 +23,19 @@ const BlogLayoutThree = ({ blog }: BlogLayoutThreeProps) => {
             </Link>
             <div className="mt-4 flex w-full flex-col">
                 {blog.tags && blog.tags.length > 0 && (
-                    <span className="text-sm font-semibold uppercase text-accent">
+                    <span className="sm:text-sm text-xs font-semibold uppercase text-accent dark:text-accentDark">
                         {blog.tags[0]}
                     </span>
                 )}
                 <Link href={blog.url} className="my-1 inline-block">
-                    <h2 className=" text-lg font-semibold capitalize">
-                        <span className="bg-gradient-to-r from-accent/50  to-accent/50 bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-[length:100%_6px]">
+                    <h2 className="sm:text-lg text-base font-semibold capitalize">
+                        <span className="bg-gradient-to-r from-accent/50 to-accent/50 bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-[length:100%_6px] dark:from-accentDark/50 dark:to-accentDark/50">
                             {blog.title}
                         </span>
                     </h2>
                 </Link>
-                <span className="text-base font-semibold text-gray">
-                    {format(new Date(blog.publishedAt), 'dd.MM.yyyy')}{' '}
+                <span className="sm:text-base text-xs font-semibold capitalize text-dark/50 dark:text-light/50">
+                    {format(new Date(blog.publishedAt), 'dd.MM.yyyy')}
                 </span>
             </div>
         </div>

@@ -18,12 +18,12 @@ const RecentPosts = ({ blogs }: RecentPostsProps) => {
                 </h2>
                 <Link
                     href="/categories/all"
-                    className="inline-block text-lg font-medium text-accent underline underline-offset-2"
+                    className="md:text-lg inline-block text-base font-medium text-accent underline underline-offset-2 dark:text-accentDark"
                 >
                     view all
                 </Link>
             </div>
-            <div className="mt-16 grid grid-cols-3 grid-rows-2 gap-16">
+            <div className="sm:grid-cols-2 lg:grid-cols-3 mt-16 grid grid-cols-1 grid-rows-2 gap-16">
                 {sortedBlogs.slice(4, 10).map((blog, index) => (
                     <article
                         key={index}

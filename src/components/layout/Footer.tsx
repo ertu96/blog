@@ -18,11 +18,11 @@ const Footer = () => {
     const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
 
     return (
-        <footer className="m-10 mt-16 flex flex-col items-center rounded-2xl bg-dark text-light">
-            <h3 className="mt-16 px-4 text-center text-4xl font-medium capitalize">
+        <footer className="m-10 mt-16 flex flex-col items-center rounded-2xl bg-dark text-light dark:bg-accentDark/90 dark:text-dark">
+            <h3 className="lg:text-4xl sm:text-3xl mt-16 px-4 text-center text-2xl font-medium capitalize dark:font-bold">
                 Interesting Stories | Updates | Guides
             </h3>
-            <p className="mt-5 w-3/5 px-4 text-center text-base font-light">
+            <p className="sm:text-base sm:w-3/5 mt-5 w-full px-4 text-center text-xs font-light">
                 Subscribe to learn about new technology and updates. Join over
                 5000+ members community to stay up to date with latest news.
             </p>
