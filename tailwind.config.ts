@@ -24,7 +24,7 @@ const config: Config = {
         screens: {
             sx: '480px',
             sxl: '1180px',
-        }
+        },
     },
     plugins: [
         require('@tailwindcss/forms'),

@@ -86,11 +86,11 @@ export default function BlogPage({ params }: BlogPageProps) {
                             className="px-6 py-2 text-sm"
                         />
                     )}
-                    <h1 className="relative mt-6 inline-block w-5/6 text-5xl font-semibold capitalize leading-normal text-light">
+                    <h1 className="md:text-3xl lg:text-5xl relative mt-6 inline-block w-5/6 text-2xl font-semibold capitalize leading-normal text-light">
                         {blog?.title}
                     </h1>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 top-0 h-full bg-dark/60" />
+                <div className="dark-dark/40 absolute bottom-0 left-0 right-0 top-0 h-full bg-dark/60" />
                 <Image
                     src={blog?.image?.filePath.replace('../public', '') || ''}
                     placeholder="blur"
@@ -102,10 +102,10 @@ export default function BlogPage({ params }: BlogPageProps) {
                 />
             </div>
             <BlogDetails blog={blog} slug={params.slug} />
-            <div className="mt-8 grid grid-cols-12 gap-16 px-10">
-                <div className="col-span-4">
+            <div className="lg:gap-8 mt-8 grid grid-cols-12 gap-y-8 px-10 sxl:gap-16">
+                <div className="lg:col-span-4 col-span-12">
                     <details
-                        className="sticky top-6 max-h-[80vh] overflow-hidden overflow-y-auto rounded-lg border-[1px] border-solid border-dark p-4 text-dark "
+                        className="sticky top-6 max-h-[80vh] overflow-hidden overflow-y-auto rounded-lg border-[1px] border-solid border-dark p-4 text-dark dark:border-light dark:text-light"
                         open
                     >
                         <summary className="cursor-pointer text-lg font-semibold capitalize">
@@ -121,11 +121,11 @@ export default function BlogPage({ params }: BlogPageProps) {
                                         <a
                                             href={`#${heading.slug}`}
                                             data-level={heading.level}
-                                            className="flex  items-center
-                                       justify-start border-solid border-dark/40
+                                            className="sm:data-[level=three]:pl-6  flex
+                                       items-center justify-start border-solid
+                                       border-dark/40
                                        data-[level=two]:border-t
-                                       data-[level=three]:pl-4
-                                       data-[level=two]:pl-0 data-[level=two]:pt-2 sm:data-[level=three]:pl-6
+                                       data-[level=three]:pl-4 data-[level=two]:pl-0 data-[level=two]:pt-2
                                        "
                                         >
                                             {heading.level === 'three' ? (
