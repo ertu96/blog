@@ -1,11 +1,12 @@
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import { cx } from '@/utils'
-import siteMetadata from '@/utils/siteMetaData'
+
 import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
+import siteMetadata from '../utils/siteMetaData'
 
 const inter = Inter({
     subsets: ['latin'],

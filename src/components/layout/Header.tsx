@@ -1,6 +1,5 @@
 'use client'
 
-import siteMetadata from '@/utils/siteMetaData'
 import Link from 'next/link'
 import { useState } from 'react'
 import {
@@ -12,6 +11,7 @@ import {
 } from '../Icons'
 import { useThemeSwitch } from '../hooks/useThemeSwitch'
 import Logo from './Logo'
+import siteMetadata from '../../utils/siteMetaData'
 
 const Header = () => {
     const [mode, setMode] = useThemeSwitch()
@@ -20,9 +20,9 @@ const Header = () => {
     const toggle = () => setClick(!click)
 
     return (
-        <header className="flex w-full items-center justify-between p-4 px-5 sm:px-10">
+        <header className="sm:px-10 flex w-full items-center justify-between p-4 px-5">
             <Logo />
-            <button className="z-50 inline-block sm:hidden" onClick={toggle}>
+            <button className="sm:hidden z-50 inline-block" onClick={toggle}>
                 <div className="ease w-6 cursor-pointer transition-all duration-300">
                     <div className="relative">
                         <span
@@ -58,7 +58,7 @@ const Header = () => {
             </button>
 
             <nav
-                className="ease fixed right-1/2 top-6 z-50 flex w-max translate-x-1/2 items-center gap-x-4 rounded-full border border-solid border-dark bg-light/80 px-6 py-3 font-medium capitalize backdrop-blur-sm transition-all duration-300 sm:hidden sm:px-8"
+                className="ease sm:hidden sm:px-8 fixed right-1/2 top-6 z-50 flex w-max translate-x-1/2 items-center gap-x-4 rounded-full border border-solid border-dark bg-light/80 px-6 py-3 font-medium capitalize backdrop-blur-sm transition-all duration-300"
                 style={{
                     top: click ? '1rem' : '-5rem',
                 }}
@@ -73,7 +73,7 @@ const Header = () => {
                 </button>
             </nav>
 
-            <nav className="fixed right-1/2 top-6 z-50 hidden w-max translate-x-1/2 items-center gap-x-4 rounded-full border border-solid border-dark bg-light/80 px-8 py-3 font-medium capitalize backdrop-blur-sm sm:flex">
+            <nav className="sm:flex fixed right-1/2 top-6 z-50 hidden w-max translate-x-1/2 items-center gap-x-4 rounded-full border border-solid border-dark bg-light/80 px-8 py-3 font-medium capitalize backdrop-blur-sm">
                 <Link href="/">Home</Link>
                 <Link href="/about">About</Link>
                 <Link href="/contact">Contact</Link>
@@ -83,7 +83,7 @@ const Header = () => {
                     <SunIcon className="" />
                 </button>
             </nav>
-            <div className="hidden items-center sm:flex">
+            <div className="sm:flex hidden items-center">
                 <a
                     href={siteMetadata.linkedin}
                     className="mr-4 inline-block h-6 w-6"

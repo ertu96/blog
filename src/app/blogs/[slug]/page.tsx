@@ -1,10 +1,11 @@
 import BlogContent from '@/components/blog/BlogContent'
 import BlogDetails from '@/components/blog/BlogDetails'
 import Tag from '@/components/elements/Tag'
-import siteMetadata from '@/utils/siteMetaData'
+
 import { slug } from 'github-slugger'
 import Image from 'next/image'
 import { allBlogs } from '../../../../.contentlayer/generated/index.mjs'
+import siteMetadata from '../../../utils/siteMetaData'
 
 type BlogPageProps = {
     params: {

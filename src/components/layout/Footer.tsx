@@ -1,8 +1,9 @@
 'use client'
-import siteMetadata from '@/utils/siteMetaData'
+
 import Link from 'next/link'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { DribbbleIcon, GithubIcon, LinkedinIcon, TwitterIcon } from '../Icons'
+import siteMetadata from '../../utils/siteMetaData'
 
 type FormValues = {
     email: string
