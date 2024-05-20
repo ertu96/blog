@@ -102,7 +102,7 @@ export default function BlogPage({ params }: BlogPageProps) {
                 />
             </div>
             <BlogDetails blog={blog} slug={params.slug} />
-            <div className="lg:gap-8 mt-8 grid grid-cols-12 gap-y-8 px-10 sxl:gap-16">
+            <div className="lg:gap-8 md:px-10 mt-8 grid grid-cols-12 gap-y-8 px-5 sxl:gap-16">
                 <div className="lg:col-span-4 col-span-12">
                     <details
                         className="sticky top-6 max-h-[80vh] overflow-hidden overflow-y-auto rounded-lg border-[1px] border-solid border-dark p-4 text-dark dark:border-light dark:text-light"
@@ -121,8 +121,9 @@ export default function BlogPage({ params }: BlogPageProps) {
                                         <a
                                             href={`#${heading.slug}`}
                                             data-level={heading.level}
-                                            className="sm:data-[level=three]:pl-6  flex
-                                       items-center justify-start border-solid
+                                            className="sm:data-[level=three]:pl-6  sm:data-[level=three]:pl-6
+                                       flex items-center justify-start
+                                       border-solid
                                        border-dark/40
                                        data-[level=two]:border-t
                                        data-[level=three]:pl-4 data-[level=two]:pl-0 data-[level=two]:pt-2

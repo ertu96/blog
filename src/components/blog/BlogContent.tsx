@@ -16,7 +16,7 @@ const BlogContent = ({ blog }: BlogContentProps) => {
     const MDXContents = useMDXComponent(blog.body.code)
     return (
         <div
-            className="lg:col-span-8  sm:prose-base md:prose-lg sm:first-letter:text-5xl prose col-span-12 max-w-max
+            className="lg:col-span-8 sm:prose-base md:prose-lg sm:first-letter:text-5xl prose col-span-12 max-w-max
     font-in
     dark:prose-invert
     first-letter:text-3xl

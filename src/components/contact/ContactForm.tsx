@@ -14,7 +14,7 @@ const ContactForm = () => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className=" mt-12 font-in text-xl font-medium leading-relaxed "
+            className=" xs:text-lg sm:text-xl mt-12 font-in text-base font-medium leading-relaxed "
         >
             Hello my name is
             <input
@@ -48,7 +48,7 @@ const ContactForm = () => {
             <input
                 type="submit"
                 value="Send Request"
-                className="border-darkrounded mt-8 inline-block cursor-pointer border-2 border-solid px-8 py-3 text-xl font-medium capitalize"
+                className="border-darkrounded sm:px-8 sm:py-3 sm:text-xl mt-8 inline-block cursor-pointer border-2 border-solid px-6 py-2 text-lg  font-medium capitalize dark:border-light"
             />
         </form>
     )
