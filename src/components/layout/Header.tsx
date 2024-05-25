@@ -6,12 +6,14 @@ import {
     DribbbleIcon,
     GithubIcon,
     LinkedinIcon,
+    MoonIcon,
     SunIcon,
     TwitterIcon,
 } from '../Icons'
 import { useThemeSwitch } from '../hooks/useThemeSwitch'
 import Logo from './Logo'
 import siteMetadata from '../../utils/siteMetaData'
+import { cx } from '@/utils'
 
 const Header = () => {
     const [mode, setMode] = useThemeSwitch()
@@ -67,9 +69,19 @@ const Header = () => {
                 <Link href="/about">About</Link>
                 <Link href="/contact">Contact</Link>
                 <button
+                    className={cx(
+                        'ease ml-2 flex h-6 w-6 items-center justify-center rounded-full p-1',
+                        mode === 'light'
+                            ? 'bg-dark text-light'
+                            : 'bg-light text-dark'
+                    )}
                     onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
                 >
-                    <SunIcon className="" />
+                    {mode === 'light' ? (
+                        <MoonIcon />
+                    ) : (
+                        <SunIcon className="fill-dark" />
+                    )}
                 </button>
             </nav>
 
@@ -78,9 +90,19 @@ const Header = () => {
                 <Link href="/about">About</Link>
                 <Link href="/contact">Contact</Link>
                 <button
+                    className={cx(
+                        'ease ml-2 flex h-6 w-6 items-center justify-center rounded-full p-1',
+                        mode === 'light'
+                            ? 'bg-dark text-light'
+                            : 'bg-light text-dark'
+                    )}
                     onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
                 >
-                    <SunIcon className="" />
+                    {mode === 'light' ? (
+                        <MoonIcon />
+                    ) : (
+                        <SunIcon className="fill-dark" />
+                    )}
                 </button>
             </nav>
             <div className="sm:flex hidden items-center">

@@ -100,6 +100,8 @@ export default function BlogPage({ params }: BlogPageProps) {
                     height={blog?.image?.height || 0}
                     width={blog?.image?.width || 0}
                     className=" aspect-square h-full w-full cursor-pointer object-cover object-center"
+                    priority
+                    sizes="100vw"
                 />
             </div>
             <BlogDetails blog={blog} slug={params.slug} />
